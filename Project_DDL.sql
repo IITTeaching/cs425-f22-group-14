@@ -15,11 +15,7 @@ Create Table if not exists Employee(
     salary numeric(8,2),
     SSN numeric(9) NOT null,
     name varchar(20) NOT null,
-    primary key(SSN),
-	FOREIGN KEY(homeBranch)
-        REFERENCES Branch(BID)
-        ON DELETE CASCADE
-		ON UPDATE CASCADE
+    primary key(SSN)
     );
 
 Create Table if not exists Account_Type(
@@ -62,7 +58,11 @@ Create Table if not exists Customer(
     street varchar(20),
     zip_code numeric(6,2),
     homeBranch char(15) NOT NULL,
-    primary key(CID)
+    primary key(CID),
+    FOREIGN KEY(homeBranch)
+        REFERENCES Branch(BID)
+        ON DELETE CASCADE
+	ON UPDATE CASCADE
     );
 
 CREATE TABLE IF NOT EXISTS Owns(
